@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>
+			Hello
+		</title>
+		<style>
+			
+			h1 {
+
+				color: darkred;
+				background-color: lightyellow; 
+			}
+		</style>
+		<script>
+			function sayHello() {
+				//alert("Hello, world!");
+				document.getElementById("hdr2").innerText = "Hello, world!";
+				document.getElementById("hdr2").style.color = "red";
+			}
+
+			function sayMeow() {
+				document.getElementById("hdr1").innerText = "Meow!";
+				document.getElementById("hdr1").style.color = "green";
+			}
+
+			function MeowLouder() {
+			document.getElementById("hdr1").innerText = "Meow!";
+			
+			document.getElementById("hdr1").style.color = "blue";
+		}
+			function StopMeow() {
+				document.getElementById("hdr1").innerText = "Just HTML!!!";
+				document.getElementById("hdr1").style.color = "darkred";
+				function catMeow() {
+					var meow = document.getElementById("snd1");
+					audio.play();
+					
+
+				}
+			} 
+		</script>
+		
+	</head>
+	<body>
+		<a href="index1.html">Home page</a>
+		<h1 id="hdr1">Just HTML!!!</h1>
+		<audio autoplay id="snd1">
+			<source src="sounds/catmeow.mp3" type="audio/mpeg"> </source>
+		</audio> 
+		<p>hjgsfjggfjgjG</p>
+		<p>aJHG`DLJFlfgG
+		sadasd sadas dsad</p>
+		<p>JUADLGqlgfwglflulk</p>
+		<p>akluawheflawlfeggLG</p>
+		<a href="http://microsoft.com">See Microsoft Corp.</a> <br />
+		<h1 id="hdr2">About cats</h1>
+		<img src="images/cat.jpg" style="width: 300px" onclick="sayMeow();" onmouseover="MeowLouder();" onmouseleave="StopMeow();" />
+		<br />
+		<button onclick="sayHello();">Click me</button>
+	</body>
+</html>

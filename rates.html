@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Magazine</title>
+    <script>
+        
+       
+        function getRates(){
+            var url = "https://www.cbr-xml-daily.ru/daily_json.js";
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url);
+            xhr.onload = function() {
+                var rates = xhr.responseText;
+                var valute = JSON.parse(rates);
+                // Курс Доллара США
+                var USDrate = valute.Valute.USD.Value.toFixed(4).replace('.', ',');
+                var USD = document.getElementById('USD');
+                USD.innerHTML = USD.innerHTML.replace('00,0000', USDrate);
+  
+                // курс Азербаджанского маната 
+                var AZNrate = valute.Valute.AZN.Value.toFixed(4).replace('.', ',');
+                var AZN = document.getElementById('AZN');
+                AZN.innerHTML = AZN.innerHTML.replace('00,0000', AZNrate);
+
+                var out = "";
+                for(var i in valute) {
+                    var USD = valute[i];
+                    var name = USD["name"];
+                    var value = USD["value"];
+                    out+= name + ", " + value + "</br>";
+                    
+                 }
+                 document.getElementById("USD1").innerHTML = out;
+        };
+            xhr.send();
+        }
+        
+    </script>
+    
+</head>
+<body onload = "getRates();">
+    <div id="USD">Доллар США $ — 00,0000 руб.</div>
+    <div id="AZN"> Азербаджанский манат ₼ — 00,0000 руб.</div>
+    <div id="USD1">Доллар США $ </div>
+    <div id="AZN1"> Азербаджанский манат ₼ </div>
+    <h1>Cats and stuff</h1>
+    
+</body>
+</html>
+

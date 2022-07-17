@@ -8,7 +8,10 @@
 // 1. Weak password (Cлабый парооль);
 // 2. Principle of least privilege (Нарушен принцип наименьших привилегий);
 // 3. Hardcode secret (Секрет в коде).
-$conn = mysqli_connect("localhost","root","","cyb4");
+$server = getenv("cyb4_db_server");
+$login = getenv("cyb4_user_user");
+$pwd = trim(getenv("cyb4_db_pwd"));
+$conn = mysqli_connect($server,$login,$pwd,"cyb4");
 //4. Уязвисмость для SQL Injection
 $sql = "INSERT INTO Calcs(Num1, Num2, User) VALUES($x, $y, 'Anonym')";
 

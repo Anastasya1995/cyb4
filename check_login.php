@@ -28,6 +28,10 @@ else {
 // $numRows= count($result);
 // //echo ($numRows);
 
+$server = getenv("cyb4_db_server");
+$login = getenv("cyb4_user_user");
+$pwd = trim(getenv("cyb4_db_pwd"));
+$conn = mysqli_connect($server,$login,$pwd,"cyb4");
 // Устраненяем проблему SQL Injection!!!
 
 $sql = "SELECT * FROM users WHERE Login=? AND PwdHash=? ";
@@ -37,13 +41,8 @@ mysqli_stmt_execute($stat);
 $result = mysqli_stmt_get_result($stat);
 $numRows= mysqli_num_rows($result);
 
-// Устраняем проблему секрета в коде 
-// Тем самым проблема слабого пароля и превышенного логина 
-//дилегируется администратору производственного сервера
-$server = getenv("cyb4_db_server");
-$login = getenv("cyb4_user_user");
-$pwd = trim(getenv("cyb4_db_pwd"));
-$conn = mysqli_connect($server,$login,$pwd,"cyb4");
+
+
 
 
 

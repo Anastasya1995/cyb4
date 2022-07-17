@@ -13,7 +13,7 @@
 <body>
 	<a href="index1.html">Home page</a>
 	<h1>Register new user</h1>
-	<form method="POST" action="add_user.php">
+	<form method="POST" action="api/add_user.php">
 		<input type="email" name="txtEmail" /> <br/>
 		<input type="name" name="txtUser" /> <br>
 		<input type="password" name="txtPwd" /> <br>

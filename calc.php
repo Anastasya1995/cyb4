@@ -3,7 +3,7 @@ session_start();
 // фактически, здесь реализована авторизация
 if(!isset($_SESSION["user"])){
 	echo '<meta http-equiv="refresh" content="3; url=login.php" />';
-	die("Enter your login! You will be retracked to Login page");
+	die("Enter your login! You will be redirected to the Login page");
 
 }
 ?>
